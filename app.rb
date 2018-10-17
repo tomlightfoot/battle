@@ -21,6 +21,12 @@ enable :sessions
   end
 
   get '/attack' do
+    $game.attack($game.current_turn)
     erb :attack
+  end
+
+  post '/Continue' do
+    $game.switch_turn
+    redirect '/play'
   end
 end

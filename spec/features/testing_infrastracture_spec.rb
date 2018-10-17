@@ -27,8 +27,24 @@ feature 'Attack' do
 
   scenario 'Return to play for second attack' do
     sign_in_and_play
-    click_button 'Attack'
-    click_button 'Continue'
+    attack_and_continue
     expect(page). to have_content('Battle!')
+  end
+end
+
+feature 'Switching turns' do
+  scenario 'It switches turns' do
+    sign_in_and_play
+    attack_and_continue
+    click_button 'Attack'
+    expect(page).to have_content('Sundar: 90hp || Tom: 90hp')
+  end
+end
+
+feature 'Game end' do
+  scenario 'Ends the game' do
+    sign_in_and_play
+    19.times { attack_and_continue }
+    expect(page).to have_content('Tom is dead, Sundar wins')
   end
 end

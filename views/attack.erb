@@ -1,7 +1,6 @@
 <%= $game.player_1.name %> attacked <%= $game.player_2.name %> <br>
-<%= $game.attack($game.player_2) %> <br>
 <%= $game.player_1.name %>: <%= $game.player_1.hp %>hp || <%= $game.player_2.name %>: <%= $game.player_2.hp %>hp
 
-<form action='/play'>
+<form action='/Continue' method='post'>
   <input type='submit' value='Continue'>
 </form>
